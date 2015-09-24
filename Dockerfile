@@ -7,7 +7,7 @@ ENV JAVA_HOME /opt/java
 ENV PATH $JAVA_HOME/bin:$PATH
 
 
-RUN apt-get update && apt-get install wget tar unzip -y
+RUN apt-get update && apt-get install wget tar unzip -y && apt-get clean
 
 
 RUN cd /tmp && wget -q -c -O "jdk.tar.gz" --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz" \
