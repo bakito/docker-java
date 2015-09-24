@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install wget tar unzip -y && apt-get clean
 
 RUN echo "$UPDATE"
 
-RUN cd /tmp && wget -q -c -O "jdk.tar.gz" --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" \
+RUN cd /tmp \
+  && wget -q -c -O "jdk.tar.gz" --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" \
   && tar -zxvf jdk.tar.gz > /dev/null \
   && rm /tmp/jdk.tar.gz -Rf \
   && mv /tmp/jdk* /opt \
