@@ -4,7 +4,7 @@ FROM ubuntu:15.10
 MAINTAINER Marc Brugger <github@bakito.ch>
 USER root
 
-RUN apt-get update && apt-get install wget tar unzip -y && apt-get clean
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install wget tar -y && apt-get clean
 
 ENV JAVA_VERSION 8
 ENV JAVA_UPDATE 60
@@ -26,7 +26,7 @@ RUN cd /tmp \
   && rm /tmp/* -Rf\
   && echo "replacing jce policy"\
   && wget -q -c -O "jce_policy.zip" --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jce/${JAVA_VERSION}/jce_policy-${JAVA_VERSION}.zip" \
-  && unzip jce_policy.zip > /dev/null \
+  && $JAVA_HOME/bin/jar xvf jce_policy.zip > /dev/null \
   && mv UnlimitedJCEPolicyJDK${JAVA_VERSION}/*.jar $JAVA_HOME/jre/lib/security \
   && rm /tmp/* -Rf\
   && echo "switching to /dev/urandom in $JAVA_HOME/jre/lib/security/java.security"\
