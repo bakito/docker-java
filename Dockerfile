@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM redhat/rhel7:latest
 
 
 MAINTAINER Marc Brugger <github@bakito.ch>
