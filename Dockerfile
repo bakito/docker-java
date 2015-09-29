@@ -2,8 +2,7 @@ FROM rhel7
 
 MAINTAINER Marc Brugger <github@bakito.ch>
 USER root
-
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install wget tar -y && apt-get clean
+RUN yum install wget tar 
 
 ENV JAVA_VERSION 8
 ENV JAVA_UPDATE 60
