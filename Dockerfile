@@ -1,5 +1,4 @@
-FROM redhat/rhel7:latest
-
+FROM rhel7
 
 MAINTAINER Marc Brugger <github@bakito.ch>
 USER root
