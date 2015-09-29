@@ -1,8 +1,10 @@
-FROM rhel7
+FROM ubuntu:15.10
+
 
 MAINTAINER Marc Brugger <github@bakito.ch>
 USER root
 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install wget tar -y && apt-get clean
 
 ENV JAVA_VERSION 8
 ENV JAVA_UPDATE 60
