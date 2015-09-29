@@ -2,7 +2,7 @@ FROM rhel7
 
 MAINTAINER Marc Brugger <github@bakito.ch>
 USER root
-RUN yum install wget tar 
+
 
 ENV JAVA_VERSION 8
 ENV JAVA_UPDATE 60
